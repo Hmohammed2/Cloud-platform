@@ -1,0 +1,40 @@
+# Node modules
+node_modules
+**/node_modules
+
+# Build outputs
+dist
+build
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Environment variables
+.env
+.env.*  # optional: keep secrets out of image
+
+# IDEs and editors
+.vscode
+.idea
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Tests & coverage
+coverage
+*.test.*
+*.spec.*
+
+# Docker itself
+.dockerignore
+Dockerfile*
+
+# Local tooling / misc
+*.log
+*.tsbuildinfo
+*.bak
