@@ -1,0 +1,21 @@
+services:
+  backend:
+    container_name: backend-computech
+    build:
+      context: "./backend"
+      dockerfile: Dockerfile
+    ports: 
+      - "7777:7777"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./backend:/app/backend
+      - /app/backend/node_modules
+    command: npm run dev
+  frontend:
+    container_name: cloud-platform
+    build:
+      context: "./cloud-platform"
+      dockerfile: Dockerfile
+    ports: 
+      - "3000:80"
