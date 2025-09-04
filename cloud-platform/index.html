@@ -42,67 +42,95 @@
     <style id="dark-mode-native-sheet"></style>
 </head>
 
-<body class="font-sans" data-new-gr-c-s-check-loaded="14.1251.0" data-gr-ext-installed="">
+<body class="font-sans">
     <div id="content">
         <div>
-            <header class="relative px-6 py-4 overflow-hidden text-gray-600 bg-gray-100 lg:px-12 lg:py-5"
-                x-data="{ mobileMenu: false}">
+            <header class="relative overflow-hidden text-gray-600 bg-gray-100" x-data="{ mobileMenu: false }">
+                <!-- Background image + overlay -->
                 <img src="assets/hero-image.jpg" alt="hero image" class="absolute inset-0 object-cover w-full h-full">
-                <div class="absolute inset-0 bg-gradient-to-br from-indigo-900">
-                    &nbsp;
-                </div>
+                <div class="absolute inset-0 bg-gradient-to-br from-indigo-900"></div>
+
+                <!-- Navbar -->
                 <div class="relative z-10">
-                    <div class="relative flex items-center justify-between max-w-screen-xl mx-auto ">
-                        <a href="#" class="flex-shrink-0 block">
-                            <img class="h-9 md:h-14" src="assets/logo.webp" alt="logo placeholder">
+                    <div class="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-4 lg:px-12 lg:py-5">
+                        <!-- Logo -->
+                        <a href="#" class="flex-shrink-0">
+                            <img class="h-9 md:h-14" src="assets/logo.webp" alt="logo">
+                        </a>
+
+                        <!-- Desktop nav -->
+                        <nav class="hidden md:flex space-x-8">
+                            <a href="#hero" class="text-base text-white hover:text-orange-400">About Us</a>
+                            <a href="#services" class="text-base text-white hover:text-orange-400">Services</a>
+                            <a href="#contact" class="text-base text-white hover:text-orange-400">Contact</a>
+                        </nav>
+
+                        <!-- Mobile button -->
+                        <button @click="mobileMenu = !mobileMenu" class="md:hidden text-white focus:outline-none">
+                            <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg x-show="mobileMenu" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Mobile menu -->
+                    <div x-show="mobileMenu" class="md:hidden px-6 pb-4 space-y-3 bg-indigo-900">
+                        <a href="#hero" class="block text-white hover:text-orange-400">About Us</a>
+                        <a href="#services" class="block text-white hover:text-orange-400">Services</a>
+                        <a href="#contact" class="block text-white hover:text-orange-400">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Hero content -->
+                <div
+                    class="relative z-10 max-w-screen-xl mx-auto px-6 mt-8 mb-8 text-left lg:mt-20 xl:mt-40 lg:mb-20 xl:mb-32">
+                    <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl">
+                        CompuTech IT Solution
+                    </h2>
+                    <p class="max-w-xl mt-4 text-xl leading-relaxed text-white">
+                        We secure what others overlook. Behind every elegant website lies hidden risk —
+                        misconfigured headers, exposed infrastructure, silent vulnerabilities. At Computech IT Solution
+                        Ltd,
+                        we protect the unseen, so your business runs securely and your users stay confident.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex mt-8 lg:mt-12 space-x-4">
+                        <a href="https://calendly.com/computechitsolution-info/30min"
+                            class="inline-flex px-4 py-3 space-x-2 font-semibold text-indigo-600 bg-white rounded-lg shadow hover:bg-gray-100"
+                            target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" class="w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 
+                00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Schedule a meeting</span>
+                        </a>
+                        <a href="#contact"
+                            class="inline-flex px-4 py-3 space-x-2 font-semibold text-white bg-orange-600 rounded-lg shadow hover:bg-orange-700">
+                            <span>Contact Us</span>
                         </a>
                     </div>
-                    <div class="max-w-screen-xl mx-auto mt-8 mb-8 text-left lg:mt-20 xl:mt-40 lg:mb-20 xl:mb-32">
-                        <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl"> CompuTech IT
-                            Solution</h2>
-                        <p class="max-w-xl mt-4 text-xl leading-relaxed text-white ">
-                            We secure what others overlook.
-                            Behind every elegant website lies hidden risk — misconfigured headers,
-                            exposed infrastructure, silent vulnerabilities. At Computech IT Solution Ltd,
-                            we protect the unseen, so your business runs securely and your users stay confident.
-                        </p>
-                        <!-- CALENDY SETTINGS -->
-                        <div class="flex mt-8 lg:mt-12">
-                            <a href="https://calendly.com/computechitsolution-info/30min"
-                                class="inline-flex px-3 py-4 space-x-2 font-semibold text-indigo-600 bg-white rounded-lg shadow md:px-5 lg:px-6"
-                                target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" class="w-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                                <span>
-                                    Schedule a meeting
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                    <!--
-    <div class="grid max-w-screen-xl grid-cols-2 col-gap-6 mx-auto mt-8 mb-12 space-y-5 md:px-6 lg:px-12 xl:px-4 sm:grid-cols-3 sm:space-y-3 xl:grid-cols-6 lg:mt-10 lg:mb-32">
-      <img class="self-end h-12 p-1 md:justify-self-center opacity-90" src="../../images/consultancy/boxify-logo-white.svg" alt="logo placeholder">
-      <img class="self-end h-10 p-1 md:justify-self-center opacity-90" src="../../images/consultancy/edge-logo-white.svg" alt="logo placeholder">
-      <img class="self-end h-10 p-1 md:justify-self-center opacity-90" src="../../images/consultancy/sbalbew-logo-white.svg" alt="logo placeholder">
-      <img class="self-end h-10 p-1 md:justify-self-center opacity-90" src="../../images/consultancy/drops-logo-white.svg" alt="logo placeholder">
-      <img class="self-end h-12 p-1 md:justify-self-center opacity-90" src="../../images/consultancy/pathway-logo-white.svg" alt="logo placeholder">
-      <img class="self-end h-12 p-1 md:justify-self-center opacity-90" src="../../images/consultancy/feedback-logo-white.svg" alt="logo placeholder">
-    </div>
-  -->
                 </div>
+
+                <!-- Bottom wave -->
                 <div class="absolute bottom-0 left-0 right-0">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 100" class="text-white fill-current">
-                        <path class="currentColor" d="M0,0c0,0,900,95,2400,0v100H0L0,0z"></path>
+                        <path d="M0,0c0,0,900,95,2400,0v100H0L0,0z"></path>
                     </svg>
                 </div>
             </header>
 
+
             <!-- HERO / SECURITY SECTION -->
-            <section class="px-6 pt-16 pb-20 text-gray-600 bg-gray-50 lg:px-12 lg:pt-28">
+            <section id="hero" class="px-6 pt-16 pb-20 text-gray-600 bg-gray-50 lg:px-12 lg:pt-28">
                 <div class="grid max-w-screen-xl grid-cols-1 gap-12 mx-auto md:grid-cols-2 md:gap-16 md:items-center">
 
                     <!-- Text -->
@@ -114,9 +142,9 @@
                             Whether it’s a breach, a browser warning, or a last-minute patch, Computech IT Solution Ltd
                             stands ready to assist — promptly, professionally, and without delay.
                         </p>
-                        <a href="#"
-                            class="inline-block px-6 py-3 text-base font-semibold text-white transition bg-indigo-600 rounded-md shadow hover:bg-indigo-700">
-                            View Our Pricing Plans
+                        <a href="#contact"
+                            class="inline-block px-6 py-3 text-base font-semibold text-white transition bg-orange-600 rounded-md shadow hover:bg-orange-700">
+                            Contact us for a free audit
                         </a>
                     </div>
 
@@ -130,7 +158,7 @@
 
 
             <!-- SERVICES SECTION -->
-            <section class="px-6 pt-16 pb-20 text-gray-600 bg-white lg:px-12 lg:pt-24">
+            <section id="services" class="px-6 pt-16 pb-20 text-gray-600 bg-white lg:px-12 lg:pt-24">
                 <div class="max-w-screen-xl mx-auto text-center">
                     <h2 class="mb-4 text-3xl font-extrabold text-gray-800 sm:text-4xl lg:text-5xl">
                         Our Services
@@ -244,8 +272,6 @@
                         <p class="text-gray-600">We take pride in our relationships — our solutions are practical,
                             personal, and tailored to your business.</p>
                     </div>
-
-
                 </div>
             </section>
 
@@ -259,46 +285,66 @@
                         Clear answers to the most common questions we get about our IT security services.
                     </p>
 
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                         <!-- FAQ Item -->
-                        <div class="p-6 border rounded-lg shadow-sm">
-                            <h3 class="text-lg font-semibold text-gray-800">What services do you provide?</h3>
-                            <p class="mt-2 text-gray-600">We specialize in website security audits, SSL and DNS
-                                hardening,
-                                advanced protection, and 24/7 IT support. Our goal is to secure your business online.
+                        <details class="p-6 border rounded-lg shadow-sm group">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-800">
+                                What services do you provide?
+                                <span class="transition-transform group-open:rotate-180">▼</span>
+                            </summary>
+                            <p class="mt-2 text-gray-600">
+                                We specialize in website security audits, SSL and DNS hardening, advanced protection,
+                                and 24/7 IT support. Our goal is to secure your business online.
                             </p>
-                        </div>
+                        </details>
 
                         <!-- FAQ Item -->
-                        <div class="p-6 border rounded-lg shadow-sm">
-                            <h3 class="text-lg font-semibold text-gray-800">How quickly can you fix vulnerabilities?
-                            </h3>
-                            <p class="mt-2 text-gray-600">Most issues are resolved within 24–48 hours. We prioritize
-                                rapid response
-                                while ensuring long-term stability and protection.</p>
-                        </div>
+                        <details class="p-6 border rounded-lg shadow-sm group">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-800">
+                                How quickly can you fix vulnerabilities?
+                                <span class="transition-transform group-open:rotate-180">▼</span>
+                            </summary>
+                            <p class="mt-2 text-gray-600">
+                                Most issues are resolved within 24–48 hours. We prioritize rapid response while ensuring
+                                long-term stability and protection.
+                            </p>
+                        </details>
 
                         <!-- FAQ Item -->
-                        <div class="p-6 border rounded-lg shadow-sm">
-                            <h3 class="text-lg font-semibold text-gray-800">Do you offer ongoing support?</h3>
-                            <p class="mt-2 text-gray-600">Yes, our 24/7 support ensures your systems remain secure.
-                                We monitor, advise, and respond whenever you need us.</p>
-                        </div>
+                        <details class="p-6 border rounded-lg shadow-sm group">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-800">
+                                Do you offer ongoing support?
+                                <span class="transition-transform group-open:rotate-180">▼</span>
+                            </summary>
+                            <p class="mt-2 text-gray-600">
+                                Yes, our 24/7 support ensures your systems remain secure. We monitor, advise, and
+                                respond whenever you need us.
+                            </p>
+                        </details>
 
                         <!-- FAQ Item -->
-                        <div class="p-6 border rounded-lg shadow-sm">
-                            <h3 class="text-lg font-semibold text-gray-800">Is there a free audit available?</h3>
-                            <p class="mt-2 text-gray-600">Absolutely. We provide a free website security audit covering
-                                SSL, DNS, headers,
-                                and CSP, with results delivered in plain English.</p>
-                        </div>
+                        <details class="p-6 border rounded-lg shadow-sm group">
+                            <summary
+                                class="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-800">
+                                Is there a free audit available?
+                                <span class="transition-transform group-open:rotate-180">▼</span>
+                            </summary>
+                            <p class="mt-2 text-gray-600">
+                                Absolutely. We provide a free website security audit covering SSL, DNS, headers, and
+                                CSP, with results delivered in plain English.
+                            </p>
+                        </details>
                     </div>
                 </div>
             </section>
+
             <!-- END FAQ SECTION -->
 
             <!-- CONTACT SECTION -->
-            <section class="px-6 py-16 bg-gray-50 lg:px-12">
+            <section id="contact" class="px-6 py-16 bg-gray-50 lg:px-12">
                 <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
                     <!-- Left Content -->
@@ -322,7 +368,7 @@
 
                     <!-- Contact Form -->
                     <div class="bg-white rounded-xl border border-gray-200 shadow-md p-8">
-                        <form action="#" method="POST" class="space-y-6">
+                        <form method="POST" class="space-y-6">
 
                             <!-- Full Name + Telephone -->
                             <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
@@ -367,7 +413,7 @@
 
                             <!-- Submit Button -->
                             <button type="submit"
-                                class="w-full px-6 py-3 font-semibold text-white bg-indigo-600 rounded-md text-lg hover:bg-indigo-700 transition">
+                                class="w-full px-6 py-3 font-semibold text-white bg-orange-600 rounded-md text-lg hover:bg-orange-700 transition">
                                 Submit Request
                             </button>
                         </form>
@@ -404,7 +450,6 @@
                         <h5 class="text-xl font-semibold text-white">Resources</h5>
                         <nav class="mt-4">
                             <ul class="space-y-2">
-                                <li><a href="#blog" class="text-base hover:text-white">Blog</a></li>
                                 <li><a href="#faq" class="text-base hover:text-white">Security FAQ</a></li>
                                 <li><a href="#contact" class="text-base hover:text-white">Request a Free Audit</a></li>
                             </ul>
@@ -415,21 +460,10 @@
                         <h5 class="text-xl font-semibold text-white">Company</h5>
                         <nav class="mt-4">
                             <ul class="space-y-2">
-                                <li><a href="#about" class="text-base hover:text-white">About Us</a></li>
+                                <li><a href="#hero" class="text-base hover:text-white">About Us</a></li>
                                 <li><a href="#contact" class="text-base hover:text-white">Contact</a></li>
                                 <li><a href="mailto:info@computechitsolution.com"
                                         class="text-base hover:text-white">Email Support</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    <div>
-                        <h5 class="text-xl font-semibold text-white">Legal</h5>
-                        <nav class="mt-4">
-                            <ul class="space-y-2">
-                                <li><a href="#" class="text-base hover:text-white">Privacy Policy</a></li>
-                                <li><a href="#" class="text-base hover:text-white">Terms &amp; Conditions</a></li>
-                                <li><a href="#" class="text-base hover:text-white">Security Practices</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -465,6 +499,7 @@
             </footer>
         </div>
     </div>
+    <script src="js/email.js"></script>
 </body>
 
 </html>
