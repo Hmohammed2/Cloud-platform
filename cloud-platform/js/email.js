@@ -1,4 +1,5 @@
-const BACKEND = "http://localhost:7777";
+const BACKEND = "http://localhost:7777" // Update if your backend URL changes;
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#contact form");
 

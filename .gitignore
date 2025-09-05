@@ -405,10 +405,3 @@ mongo_data
 
 # docker ignore
 .dockerignore
-
-# ignore public uploaded files
-**/*upload*
-emailSendTest.js
-
-# secret files
-secrets
